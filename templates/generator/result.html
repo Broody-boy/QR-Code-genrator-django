@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Your QR Code - QR Code Generator{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="result-section">
+        <div class="success-message">
+            <span class="success-icon">✅</span>
+            <h2>Your QR Code is Ready!</h2>
+        </div>
+        
+        <div class="qr-display">
+            <div class="qr-card">
+                <img src="{{ qr_code_url }}" alt="Generated QR Code" class="qr-image">
+            </div>
+            
+            <div class="qr-info">
+                <p class="data-label">📝 Your Data:</p>
+                <div class="data-content">{{ qr_data }}</div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="{% url 'download_qr' %}?filename={{ filename }}" class="btn-download">
+                <span class="btn-icon">⬇️</span>
+                Download QR Code
+            </a>
+            
+            <a href="{% url 'home' %}" class="btn-new">
+                <span class="btn-icon">➕</span>
+                Create Another
+            </a>
+        </div>
+        
+        <div class="usage-tip">
+            <div class="tip-icon">💡</div>
+            <p><strong>Tip:</strong> Scan this QR code with your phone camera or any QR scanner app to test it!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

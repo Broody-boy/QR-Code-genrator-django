@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - QR Code Generator{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="hero-section">
+        <div class="hero-icon">📱</div>
+        <h2>Create Your QR Code in Seconds!</h2>
+        <p class="subtitle">Enter any text or URL below and get a beautiful QR code instantly</p>
+    </div>
+    
+    <div class="form-container">
+        <form method="POST" action="{% url 'generate_qr' %}" class="qr-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="qr_data">
+                    <span class="label-icon">✨</span>
+                    Enter Text or URL
+                </label>
+                <textarea 
+                    id="qr_data" 
+                    name="qr_data" 
+                    placeholder="e.g., https://www.example.com or Hello World!" 
+                    rows="4"
+                    required
+                ></textarea>
+            </div>
+            
+            <button type="submit" class="btn-generate">
+                <span class="btn-icon">🎯</span>
+                Generate QR Code
+            </button>
+        </form>
+    </div>
+    
+    <div class="info-cards">
+        <div class="info-card">
+            <div class="card-icon">⚡</div>
+            <h3>Fast</h3>
+            <p>Generate QR codes instantly</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🎨</div>
+            <h3>Simple</h3>
+            <p>Clean and easy to use</p>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">💾</div>
+            <h3>Download</h3>
+            <p>Save as PNG file</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
