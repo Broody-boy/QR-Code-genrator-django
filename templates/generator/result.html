@@ -23,7 +23,7 @@
         </div>
         
         <div class="action-buttons">
-            <a href="{% url 'download_qr' %}?filename={{ filename }}" class="btn-download">
+            <a href="{% url 'download_qr' %}?data={{ qr_data_b64 }}" class="btn-download">
                 <span class="btn-icon">⬇️</span>
                 Download QR Code
             </a>
